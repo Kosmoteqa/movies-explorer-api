@@ -1,7 +1,7 @@
 const moviesRouter = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const {
-  getAllMovies, deleteMovieById, createMovies
+  getAllMovies, deleteMovieById, createMovie
 } = require('../controllers/movies');
 const { URLREGEX } = require('../middlewares/validation');
 
@@ -28,6 +28,6 @@ moviesRouter.post('/', celebrate({
     nameEN: Joi.string().required(),
 
   })
-}), createMovies);
+}), createMovie);
 
 module.exports = moviesRouter;
