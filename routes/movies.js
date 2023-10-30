@@ -1,7 +1,7 @@
 const moviesRouter = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const {
-  getAllMovies, deleteMoviesById, createMovies
+  getAllMovies, deleteMovieById, createMovies
 } = require('../controllers/movies');
 const { URLREGEX } = require('../middlewares/validation');
 
@@ -10,7 +10,7 @@ moviesRouter.delete('/:movieId', celebrate({
   params: Joi.object().keys({
     movieId: Joi.string().required().length(24).hex()
   })
-}), deleteMoviesById);
+}), deleteMovieById);
 moviesRouter.post('/', celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
